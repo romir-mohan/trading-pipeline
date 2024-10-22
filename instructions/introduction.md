@@ -20,3 +20,4 @@ For everything to work, you must verify the following packages are installed on 
 - Poetry - Python Build System
 - Mypy - Python Type Checker
 - Ruff - Python Linter
+- Python3.12 WITH DEVELOPMENT HEADERS
