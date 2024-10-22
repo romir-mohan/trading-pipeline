@@ -25,4 +25,4 @@ target_link_libraries(intern_project PRIVATE pybind11::pybind11)
 
 target_link_libraries(intern_tests PRIVATE Python3::Python)
 target_link_libraries(intern_tests PRIVATE pybind11::pybind11)
-target_link_libraries(intern_tests PRIVATE GTest::gtest_main)
+target_link_libraries(intern_tests PRIVATE gtest::gtest)
