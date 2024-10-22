@@ -10,3 +10,13 @@ You will build a trading pipeline on Coinbase's BTC - we will use the REST API t
 
 At the end, you will have a working system that can bring in market data and make predictions, as well as be able to verify how performant 
 (or unperformant) those predictions are. 
+
+For everything to work, you must verify the following packages are installed on a UNIX or UNIX-like environment (NUFT Servers Recommended):
+
+- GNU Make - Runs our tasks for us
+- CMake - C++ Build system
+- Ninja - C++ Build Generator
+- Conan - C++ Dependency Management
+- Poetry - Python Build System
+- Mypy - Python Type Checker
+- Ruff - Python Linter
