@@ -17,6 +17,7 @@ For everything to work, you must verify the following packages are installed on 
 - CMake - C++ Build system
 - Ninja - C++ Build Generator
 - Conan - C++ Dependency Management
+- Clang-Format - C++ Formatter
 - Poetry - Python Build System
 - Mypy - Python Type Checker
 - Ruff - Python Linter
