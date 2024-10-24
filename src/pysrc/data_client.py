@@ -1,5 +1,4 @@
 class DataClient:
-
     def __init__(self):
         raise NotImplementedError
 

@@ -1,6 +1,8 @@
 .PHONY: build install
 
 RELEASE_TYPE = Release
+PY_SRC = src/pysrc
+CPP_SRC = src/cppsrc
 
 install:
 	conan install . --build=missing
@@ -12,7 +14,16 @@ build: install
 
 test: build
 	cd build && ./intern_tests
-	poetry run pytest src/pysrc/test
+	poetry run pytest $(PY_SRC)/test
 
 clean:
 	rm -rf build
+
+lint:
+	poetry run mypy $(PY_SRC)
+	poetry run ruff check $(PY_SRC)
+	poetry run ruff format --check $(PY_SRC)
+
+format:
+	poetry run ruff format $(PY_SRC)
+	poetry run ruff check --fix $(PY_SRC)
