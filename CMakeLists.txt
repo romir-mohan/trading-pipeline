@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(intern-project LANGUAGES CXX)
+project(intern LANGUAGES CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
@@ -22,7 +22,12 @@ target_include_directories(intern_tests PUBLIC src)
 
 target_link_libraries(intern_project PRIVATE Python3::Python)
 target_link_libraries(intern_project PRIVATE pybind11::pybind11)
+target_link_libraries(intern_project PRIVATE ${Python3_LIBRARIES})
 
 target_link_libraries(intern_tests PRIVATE Python3::Python)
 target_link_libraries(intern_tests PRIVATE pybind11::pybind11)
+target_link_libraries(intern_tests PRIVATE ${Python3_LIBRARIES})
 target_link_libraries(intern_tests PRIVATE gtest::gtest)
+
+pybind11_add_module(intern src/cppsrc/main.cpp)
+install(TARGETS intern DESTINATION intern_project)
