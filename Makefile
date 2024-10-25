@@ -11,13 +11,15 @@ install:
 build: install
 	cd build && cmake .. -DCMAKE_TOOLCHAIN_FILE=$(RELEASE_TYPE)/generators/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=$(RELEASE_TYPE) -G Ninja
 	cd build && cmake --build .
+	@cp -f build/*.so $(PY_SRC)
 
 test: build
-	cd build && ./intern_tests
-	poetry run pytest $(PY_SRC)/test
+	@cd build && ./intern_tests
+	@poetry run pytest $(PY_SRC)/test
 
 clean:
-	rm -rf build
+	@rm -rf build
+	@rm -f $(PY_SRC)/*.so
 
 lint:
 	poetry run mypy $(PY_SRC)
