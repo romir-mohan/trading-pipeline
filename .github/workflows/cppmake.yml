@@ -1,0 +1,28 @@
+name: Cpp Unit Tests
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - '*'
+
+jobs:
+    run_cpptests:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Install Conan
+          run: |
+            pipx install conan
+            conan profile detect
+
+        - name: Install Ninja
+          run: sudo apt-get install ninja-build
+
+        - name: Run Tests
+          run: make cpptest
