@@ -9,9 +9,19 @@ build: install
 	cd build && cmake --build .
 	@cp -f build/*.so $(PY_SRC)
 
-install:
-	conan install . --build=missing
+pyinstall:
 	poetry install
+
+cppinstall:
+	conan install . --build=missing
+
+install: pyinstall cppinstall
+
+unit: pyinstall build
+	@poetry run pytest $(PY_SRC)/test/unit
+
+integration: pyinstall build
+	@poetry run pytest $(PY_SRC)/test/integration
 
 test: build
 	@cd build && ./intern_tests
