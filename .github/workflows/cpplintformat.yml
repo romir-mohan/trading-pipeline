@@ -1,0 +1,33 @@
+name: Cpp Linter and Formatter
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - '*'
+
+jobs:
+    run_cpplint:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Install Conan
+          run: |
+            pipx install conan
+            conan profile detect
+
+        - name: Install Ninja
+          run: sudo apt-get install ninja-build
+
+        - name: Install Dependencies
+          run: make build
+
+        - name: Run Linter
+          run: |
+            find src/cppsrc -name '*.cpp' -o -name '*.hpp' | xargs clang-format -i
+            find src/cppsrc -name '*.cpp' -o -name '*.hpp' | xargs clang-tidy -p build -fix
