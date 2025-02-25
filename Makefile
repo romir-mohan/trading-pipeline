@@ -17,12 +17,14 @@ cppinstall:
 
 install: pyinstall cppinstall
 
-unit: pyinstall build
+pyunit: pyinstall build
 	@poetry run pytest $(PY_SRC)/test/unit
 
-integration: pyinstall build
+pyintegration: pyinstall build
 	@poetry run pytest $(PY_SRC)/test/integration
 
+cpptest: build
+	@cd build && ./intern_tests
 test: build
 	@cd build && ./intern_tests
 	@poetry run pytest $(PY_SRC)/test
