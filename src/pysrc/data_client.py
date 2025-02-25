@@ -1,5 +1,6 @@
 from typing import Any
-import requests, json
+import requests
+import json
 
 class DataClient:
     def __init__(self) -> None:
@@ -34,7 +35,7 @@ class DataClient:
 
         return trades
 
-    def get_data(self) -> json:
+    def get_data(self) -> list[tuple[float, float, bool]]:
         data = self._query_api()
 
         return self._parse_message(data)
