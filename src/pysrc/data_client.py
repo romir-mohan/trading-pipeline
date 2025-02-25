@@ -11,9 +11,7 @@ class DataClient:
 
         return data
 
-    def _parse_message(self, message):
-        self, messages: list[dict[str, Any]]
-    ) -> list[tuple[float, float, bool]]:
+    def _parse_message(self, messages: list[dict[str, Any]) -> list[tuple[float, float, bool]]:
         
         trades = []
 
