@@ -1,5 +1,3 @@
-import pytest
-
 from pysrc.data_client import DataClient
 
 def test_gemini() -> None:
