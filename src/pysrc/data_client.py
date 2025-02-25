@@ -1,3 +1,5 @@
+from typing import Any
+
 class DataClient:
     def __init__(self):
         pass
