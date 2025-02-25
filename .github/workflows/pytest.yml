@@ -24,6 +24,7 @@ jobs:
         - name: Install Package Managers
           run: |
             pipx install poetry
+            pipx install requests
             pipx install conan
             sudo apt-get install ninja-build
 
