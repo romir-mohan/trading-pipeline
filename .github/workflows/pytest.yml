@@ -25,6 +25,7 @@ jobs:
           run: |
             pipx install poetry
             pipx install requests
+            pipx install json
             pipx install conan
             sudo apt-get install ninja-build
 
