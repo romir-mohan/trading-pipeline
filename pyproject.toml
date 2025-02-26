@@ -2,11 +2,14 @@
 name = "intern-project"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Romir Mohan"]
 readme = "README.md"
 packages = [
   {include = "pysrc", from = "src"}
 ]
+
+[tool.poetry.group.dev.dependencies]
+types-requests = "^2.32.0.20241016"
 
 [project]
 name = "intern-project"
@@ -19,10 +22,12 @@ packages = [
 
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.12,<3.13"
 pytest = "^8.3.3"
 mypy = "^1.12.1"
 ruff = "^0.7.0"
+requests = "^2.32.3"
+scikit-learn = "^1.6.1"
 
 
 [build-system]
