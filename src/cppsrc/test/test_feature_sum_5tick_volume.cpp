@@ -1,9 +1,9 @@
 #include "gtest/gtest.h"
-#include "features/five_tick_volume_feature.hpp"
+#include "/home/runner/work/intern-project/intern-project/src/cppsrc/features/five_tick_volume_feature.hpp"
 
 TEST(FeatureTests, TestSum5TickVolume)
 {
-    FiveTickVolumeFeature vf();
+    intproj::FiveTickVolumeFeature vf();
     EXPECT_EQ(vf.compute_feature({ { 2, 1, false } }), 1);
     EXPECT_EQ(vf.compute_feature({ { 1, 1, false } }), 2);
     EXPECT_EQ(vf.compute_feature({ { 1, 1, false }, { 1, 1, true } }), 4);
