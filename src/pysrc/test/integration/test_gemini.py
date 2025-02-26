@@ -1,4 +1,4 @@
-from pysrc.data_client import DataClient
+from pysrc.intern import DataClient
 import requests
 
 def test_gemini() -> None:
