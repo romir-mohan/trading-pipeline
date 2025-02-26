@@ -1,12 +1,41 @@
+from typing import Any
+import requests
+import json
+
 class DataClient:
-    def __init__(self):
-        raise NotImplementedError
+    def __init__(self) -> None:
+        pass
 
-    def _query_api(self) -> None:
-        raise NotImplementedError
+    def _query_api(self) -> list[dict[str, Any]]:
+        
+        url = "https://api.sandbox.gemini.com/v1/trades/btcusd"
 
-    def _parse_message(self, message):
-        raise NotImplementedError
+        response = get(url)
+        data: list[dict[str, Any]] = list(response.json())
 
-    def get_data(self):
-        raise NotImplementedError
+        return data
+
+    def _parse_message(self, messages: list[dict[str, Any]]) -> list[tuple[float, float, bool]]:
+        
+        trades = []
+
+        for x in messages:
+            if type(x) is dict:
+                price = float(x["price"])
+                amount = float(x["amount"])
+
+                if x["type"] == "buy":
+                    side = True
+                else:
+                    side = False
+
+                trade = (price, amount, side)
+
+                trades.append(trade)
+
+        return trades
+
+    def get_data(self) -> list[tuple[float, float, bool]]:
+        data = self._query_api()
+
+        return self._parse_message(data)
