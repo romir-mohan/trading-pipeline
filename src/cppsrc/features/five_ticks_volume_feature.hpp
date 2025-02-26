@@ -11,7 +11,7 @@ namespace intproj {
 class Five_Ticks_Volume_Feature : public BaseFeature
 {
   private:
-    float Volumes[5] = [0, 0, 0, 0, 0];
+    float Volumes[5] = { 0, 0, 0, 0, 0 };
     int tick = 0;
 
   public:
