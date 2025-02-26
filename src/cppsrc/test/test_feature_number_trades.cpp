@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../../features/NTrades_feature.hpp"
+#include "../../features/number_trades_feature.hpp"
 
 TEST(FeatureTests, NTradesTest)
 {
