@@ -1,5 +1,5 @@
 from typing import Any
-import requests
+from requests import get
 import json
 
 class DataClient:
