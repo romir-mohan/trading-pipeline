@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from pysrc.data_client import DataClient
+from pysrc.data_client import DataClient  # type: ignore
 
 trades_map = [
     {
