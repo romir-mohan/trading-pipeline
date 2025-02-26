@@ -1,5 +1,5 @@
 from typing import Any
-from requests import get
+import requests
 import json
 
 class DataClient:
@@ -10,7 +10,7 @@ class DataClient:
         
         url = "https://api.sandbox.gemini.com/v1/trades/btcusd"
 
-        response = get(url)
+        response = requests.get(url)
         data: list[dict[str, Any]] = list(response.json())
 
         return data
