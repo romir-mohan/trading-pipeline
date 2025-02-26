@@ -1,4 +1,5 @@
 from pysrc.data_client import DataClient
+import requests
 
 def test_gemini() -> None:
     client = DataClient()
