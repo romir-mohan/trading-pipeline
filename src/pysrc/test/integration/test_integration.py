@@ -1,4 +1,4 @@
-from pysrc.intern import DataClient  # type: ignore
+from pysrc.data_client import DataClient  # type: ignore
 
 
 def test_tick() -> None:
