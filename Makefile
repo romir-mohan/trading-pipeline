@@ -25,9 +25,11 @@ pyintegration: pyinstall build
 
 cpptest: build
 	@cd build && ./intern_tests
-test: build
-	@cd build && ./intern_tests
-	@poetry run pytest $(PY_SRC)/test
+
+test: pyunit pyintegration cpptest
+
+run: pyinstall build
+	poetry run python3 src/pysrc/exec.py
 
 clean:
 	@rm -rf build
