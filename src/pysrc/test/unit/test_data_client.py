@@ -31,7 +31,7 @@ trades_map: List[Dict[str, Any]] = [
         "exchange": "gemini",
         "type": "sell",
     },
-  {
+    {
         "timestamp": 4,
         "timestampms": 4123,
         "tid": 4,
@@ -41,6 +41,7 @@ trades_map: List[Dict[str, Any]] = [
         "type": "buy",
     },
 ]
+
 
 def test__parse_message() -> None:
     client = DataClient()
@@ -53,6 +54,7 @@ def test__parse_message() -> None:
 
         assert len(trades) == 4
         assert trades[0][0] == 101
+
 
 def test_get_data() -> None:
     client = DataClient()

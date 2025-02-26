@@ -2,12 +2,12 @@ from typing import Any
 import requests
 import json
 
+
 class DataClient:
     def __init__(self) -> None:
         pass
 
     def _query_api(self) -> list[dict[str, Any]]:
-        
         url = "https://api.sandbox.gemini.com/v1/trades/btcusd"
 
         response = requests.get(url)
@@ -15,8 +15,9 @@ class DataClient:
 
         return data
 
-    def _parse_message(self, messages: list[dict[str, Any]]) -> list[tuple[float, float, bool]]:
-        
+    def _parse_message(
+        self, messages: list[dict[str, Any]]
+    ) -> list[tuple[float, float, bool]]:
         trades = []
 
         for x in messages:
