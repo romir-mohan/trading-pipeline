@@ -1,6 +1,6 @@
 from typing import Any
-from requests import get
-from json import json
+import requests
+import json
 
 class DataClient:
     def __init__(self) -> None:
