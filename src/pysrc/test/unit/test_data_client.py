@@ -1,8 +1,9 @@
 from unittest.mock import patch
+from typing import Any, List, Dict
 
-from pysrc.data_client import DataClient  # type: ignore
+from pysrc.data_client import DataClient
 
-trades_map = [
+trades_map: List[Dict[str, Any]] = [
     {
         "timestamp": 1,
         "timestampms": 1000,
@@ -52,7 +53,6 @@ def test__parse_message() -> None:
 
         assert len(trades) == 4
         assert trades[0][0] == 101
-
 
 def test_get_data() -> None:
     client = DataClient()
