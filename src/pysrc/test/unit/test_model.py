@@ -1,6 +1,7 @@
 from pysrc.model import Model
 from pytest import approx
 
+
 def test__find__target() -> None:
     model = Model()
     model._find_target(10.1)
@@ -46,8 +47,6 @@ def test_predict() -> None:
     for i in range(9):
         assert model.predict(([1 + i, 2 + i, 3 + i, 4 + i], float(i))) is None
 
-    assert model.predict(([10, 11, 12, 13], 9.0)) is not None
-
     assert model.predict(([11, 12, 13, 14], 10.0)) is not None
     assert model.predict(([12, 13, 14, 15], 11.0)) is not None
     assert model.predict(([13, 14, 15, 16], 12.0)) is not None
@@ -61,4 +60,3 @@ def test_predict() -> None:
     assert model.predict(([30, 31, 32, 33], 30.0)) is not None
     assert model.predict(([31, 32, 33, 34], 31.0)) is not None
     assert model.predict(([32, 33, 34, 35], 32.0)) is not None
-

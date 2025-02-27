@@ -1,6 +1,7 @@
 from typing import Any, Optional
 from sklearn.linear_model import Lasso
 
+
 class Model:
     def __init__(self) -> None:
         self._train_length = 10
@@ -10,7 +11,6 @@ class Model:
         self._model = Lasso()
         self._time = 0
         self._previous: Optional[float] = None
-
 
     def _find_target(self, midprice: float) -> None:
         if len(self._midprices) > 0:
@@ -34,7 +34,6 @@ class Model:
         self._find_target(midprice)
 
         if len(self._features) == self._train_length:
-
             self._model.fit(self._features, self._targets)
             prediction: float = self._model.predict([features])[0]
 
