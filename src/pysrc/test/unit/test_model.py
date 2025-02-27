@@ -44,8 +44,8 @@ def test__add_data() -> None:
 def test_predict() -> None:
     model = Model()
 
-    for i in range(9):
-        assert model.predict(([1 + i, 2 + i, 3 + i, 4 + i], float(i))) is None
+    for i in range(10):
+        assert model.predict(([i, i + 1, i + 2, i + 3], float(i))) is None
 
     assert model.predict(([11, 12, 13, 14], 10.0)) is not None
     assert model.predict(([12, 13, 14, 15], 11.0)) is not None
