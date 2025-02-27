@@ -1,5 +1,5 @@
 from typing import Any, Optional
-from sklearn.linear_model import Lasso  # type: ignore
+from sklearn.linear_model import Lasso
 
 class Model:
     def __init__(self) -> None:
@@ -23,7 +23,7 @@ class Model:
         self._midprices.append(midprice)
         self._features.append(features)
 
-        if len(self._features) > self._buffer_size:
+        if len(self._features) > self._train_length:
             self._features = self._features[1:]
             self._midprices = self._midprices[1:]
 
