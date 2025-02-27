@@ -7,7 +7,7 @@
 
 namespace intproj {
 
-class Number_Trades : public BaseFeature
+class NTradesFeature : public BaseFeature
 {
   public:
     float compute_feature(std::vector<std::tuple<float, float, bool>> data) override
