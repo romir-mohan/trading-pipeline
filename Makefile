@@ -23,6 +23,9 @@ pyunit: pyinstall build
 pyintegration: pyinstall build
 	@poetry run pytest $(PY_SRC)/test/integration
 
+correlation: pyinstall build
+	poetry run python3 src/pysrc/correlation.py
+
 cpptest: build
 	@cd build && ./intern_tests
 
