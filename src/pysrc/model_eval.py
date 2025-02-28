@@ -12,7 +12,7 @@ while counter <= 75:
     data = client.get_data()
     model.predict(data)
 
-    for waitCount in range(60):
+    for waitCount in range(10):
         print(".", end="", flush=True)
         sleep(1)
         waitCount += 1
