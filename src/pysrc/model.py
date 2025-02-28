@@ -45,6 +45,7 @@ class Model:
                         f"Expected: {self._previous}\n"
                         f"Actual: {self._targets[-1]}\n"
                     )
+                    print(f"Data written at time {self._time}")
 
             self._model.fit(self._features, self._targets)
             prediction: float = self._model.predict([features])[0]
