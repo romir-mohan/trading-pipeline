@@ -37,6 +37,8 @@ class Model:
 
         self._find_target(midprice)
 
+        print(f"Current features length: {len(self._features)}")
+
         if len(self._features) == self._train_length:
             if self._previous is not None:
                 with open(self._filepath, "a") as file:
