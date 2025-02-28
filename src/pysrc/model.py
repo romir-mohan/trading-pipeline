@@ -41,15 +41,9 @@ class Model:
             if self._previous is not None:
                 with open(self._filepath, "a") as file:
                     file.write(
-                        "Time: "
-                        + str(self._time)
-                        + "\n"
-                        + "Expected: "
-                        + str(self._previous)
-                        + "\n"
-                        + "Actual: "
-                        + str(self._targets[-1])
-                        + "\n"
+                        f"Time: {self._time}\n"
+                        f"Expected: {self._previous}\n"
+                        f"Actual: {self._targets[-1]}\n"
                     )
 
             self._model.fit(self._features, self._targets)

@@ -4,7 +4,7 @@ from scipy.stats import pearsonr
 exp = []
 act = []
 
-with open("/home/rmohan/intern-project/src/pysrc/data/test_data.txt") as file:
+with open("test_data.txt") as file:
     for line in file:
         exp_match = search(r"Expected: ([+-]?\d*\.\d+|\d+)", line)
         act_match = search(r"Actual: ([+-]?\d*\.\d+|\d+)", line)
@@ -15,7 +15,9 @@ with open("/home/rmohan/intern-project/src/pysrc/data/test_data.txt") as file:
         if act_match:
             act.append(float(act_match.group(1)))
 
-r_value, p_value = pearsonr(exp, act)
-
-print("r-value: " + str(r_value))
-print("p-value: " + str(p_value))
+if exp and act:
+    r_value, p_value = pearsonr(exp, act)
+    print("r-value:", r_value)
+    print("p-value:", p_value)
+else:
+    print("Not enough data for correlation calculation.")
