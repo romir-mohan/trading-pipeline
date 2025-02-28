@@ -1,3 +1,9 @@
+import sys
+import os
+
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+sys.path.append(project_root)
+
 from pysrc.data_client import DataClient
 from pysrc.model import Model
 from time import sleep
