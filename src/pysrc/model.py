@@ -12,7 +12,7 @@ class Model:
         self._time = 0
         self._previous: Optional[float] = None
 
-        self._filepath = "/home/rmohan/intern-project/src/pysrc/data/test_data.txt"
+        self._filepath = "src/pysrc/data/test_data.txt"
         with open(self._filepath, "w") as _:
             pass
 
