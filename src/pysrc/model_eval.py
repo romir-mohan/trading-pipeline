@@ -1,5 +1,5 @@
-from .data_client import DataClient
-from .model import Model
+from pysrc.data_client import DataClient
+from pysrc.model import Model
 from time import sleep
 
 client = DataClient()
