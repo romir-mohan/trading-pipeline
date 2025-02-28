@@ -10,6 +10,5 @@ class ExampleRecipe(ConanFile):
         self.requires("gtest/1.15.0")
         self.requires("pybind11/2.13.6")
 
-
     def layout(self):
         cmake_layout(self)
