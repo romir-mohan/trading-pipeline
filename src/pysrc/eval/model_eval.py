@@ -9,7 +9,7 @@ counter = 1
 while counter <= 75:
     print("Tick #: " + str(counter))
 
-    data = client.tick()
+    data = client.get_data()
     model.predict(data)
 
     for waitCount in range(60):
