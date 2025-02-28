@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, List, Dict
 import requests
 import json
 import time
@@ -7,7 +7,7 @@ import time
 class DataClient:
     def __init__(self) -> None:
         self.max_retries = 5
-        self.retry_delay = 5 
+        self.retry_delay = 5
 
     def _query_api(self) -> List[Dict[str, Any]]:
         url = "https://api.sandbox.gemini.com/v1/trades/btcusd"
@@ -16,7 +16,7 @@ class DataClient:
         while retries < self.max_retries:
             try:
                 response = requests.get(url)
-                response.raise_for_status() 
+                response.raise_for_status()
                 data: List[Dict[str, Any]] = response.json()
                 return data
             except (requests.RequestException, ValueError) as e:
