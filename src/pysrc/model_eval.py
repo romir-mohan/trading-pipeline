@@ -6,13 +6,13 @@ client = DataClient()
 model = Model()
 counter = 1
 
-while counter <= 75:
+while counter <= 10:
     print("Tick #: " + str(counter))
 
     data = client.get_data()
     model.predict(data)
 
-    for waitCount in range(10):
+    for waitCount in range(5):
         print(".", end="", flush=True)
         sleep(1)
         waitCount += 1

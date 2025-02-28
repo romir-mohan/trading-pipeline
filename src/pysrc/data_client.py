@@ -6,32 +6,27 @@ import time
 
 class DataClient:
     def __init__(self) -> None:
-        self.api_url = "https://api.sandbox.gemini.com/v1/trades/btcusd"
+        self.max_retries = 5
+        self.retry_delay = 5 
 
-    def _query_api(self) -> list[dict[str, Any]]:
-        retries = 3
+    def _query_api(self) -> List[Dict[str, Any]]:
+        url = "https://api.sandbox.gemini.com/v1/trades/btcusd"
+        retries = 0
 
-        for attempt in range(retries):
+        while retries < self.max_retries:
             try:
-                response = requests.get(self.api_url, timeout=5)
-
-                print(f"Attempt {attempt + 1}: Status Code {response.status_code}")
-
-                if response.status_code == 200:
-                    if not response.text.strip():
-                        raise ValueError("API response is empty")
-
-                    try:
-                        data: list[dict[str, Any]] = response.json()
-                        return data
-                    except json.JSONDecodeError:
-                        raise ValueError("Failed to decode JSON from API response")
-
-                print(f"Retrying in 2 seconds... ({attempt + 1}/{retries})")
-                time.sleep(2)
-
-            except requests.RequestException as e:
-                print(f"Request failed: {e}")
+                response = requests.get(url)
+                response.raise_for_status() 
+                data: List[Dict[str, Any]] = response.json()
+                return data
+            except (requests.RequestException, ValueError) as e:
+                print(f"Attempt {retries + 1} failed: {e}")
+                retries += 1
+                if retries < self.max_retries:
+                    print(f"Retrying in {self.retry_delay} seconds...")
+                    time.sleep(self.retry_delay)
+                else:
+                    raise ValueError("API request failed after multiple retries")
 
         raise ValueError("API request failed after multiple retries")
 
