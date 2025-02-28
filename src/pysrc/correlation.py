@@ -4,7 +4,7 @@ from scipy.stats import pearsonr
 exp = []
 act = []
 
-with open("test_data.txt") as file:
+with open("/home/rmohan/intern-project/src/pysrc/data/test_data.txt") as file:
     for line in file:
         exp_match = search(r"Expected: ([+-]?\d*\.\d+|\d+)", line)
         act_match = search(r"Actual: ([+-]?\d*\.\d+|\d+)", line)
