@@ -1,6 +1,7 @@
 from typing import Any
 import requests
 import json
+import time
 
 
 class DataClient:
@@ -8,12 +9,31 @@ class DataClient:
         pass
 
     def _query_api(self) -> list[dict[str, Any]]:
-        url = "https://api.sandbox.gemini.com/v1/trades/btcusd"
+        retries = 3
 
-        response = requests.get(url)
-        data: list[dict[str, Any]] = list(response.json())
+        for attempt in range(retries):
+            try:
+                response = requests.get(self.api_url, timeout=5)
 
-        return data
+                print(f"Attempt {attempt + 1}: Status Code {response.status_code}")
+
+                if response.status_code == 200:
+                    if not response.text.strip():
+                        raise ValueError("API response is empty")
+
+                    try:
+                        data: list[dict[str, Any]] = response.json()
+                        return data
+                    except json.JSONDecodeError:
+                        raise ValueError("Failed to decode JSON from API response")
+
+                print(f"Retrying in 2 seconds... ({attempt + 1}/{retries})")
+                time.sleep(2)
+
+            except requests.RequestException as e:
+                print(f"Request failed: {e}")
+
+        raise ValueError("API request failed after multiple retries")
 
     def _parse_message(
         self, messages: list[dict[str, Any]]
