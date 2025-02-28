@@ -12,7 +12,7 @@ class Model:
         self._time = 0
         self._previous: Optional[float] = None
 
-        self._filepath = "/home/rmohan/intern-project/src/pysrc/data/test_data.txt"
+        self._filepath = "src/pysrc/data/test_data.txt"
         with open(self._filepath, "w") as _:
             pass
 
@@ -38,7 +38,7 @@ class Model:
             self._features = self._features[1:]
             self._midprices = self._midprices[1:]
 
-    def predict(self, data: tuple[list[float], float]) -> Optional[float]:
+    def predict(self, data: tuple[list[float], bool]) -> Optional[float]:
         features = data[0]
         midprice = data[1]
 
