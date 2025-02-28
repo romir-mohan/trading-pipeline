@@ -14,7 +14,7 @@ def test__find__target() -> None:
     assert model._targets[0] == 0.5
 
 
-def test__add_data() -> None:
+def test__add__data() -> None:
     model = Model()
 
     for i in range(10):
@@ -41,7 +41,7 @@ def test__add_data() -> None:
     assert model._midprices[-1] == approx(11.0)
 
 
-def test_predict() -> None:
+def test__predict() -> None:
     model = Model()
 
     for i in range(10):
