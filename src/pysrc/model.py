@@ -12,6 +12,10 @@ class Model:
         self._time = 0
         self._previous: Optional[float] = None
 
+        self._filepath = "src/pysrc/test_data.txt"
+        with open(self._filepath, "w") as _:
+            pass
+
     def _find_target(self, midprice: float) -> None:
         if len(self._midprices) > 0:
             self._targets.append(midprice - self._midprices[-1])
@@ -34,6 +38,20 @@ class Model:
         self._find_target(midprice)
 
         if len(self._features) == self._train_length:
+            if self._previous_prediction is not None:
+                with open(self._filepath, "a") as file:
+                    file.write(
+                        "Time: "
+                        + str(self._time)
+                        + "\n"
+                        + "Expected: "
+                        + str(self._previous)
+                        + "\n"
+                        + "Actual: "
+                        + str(self._targets[-1])
+                        + "\n"
+                    )
+
             self._model.fit(self._features, self._targets)
             prediction: float = self._model.predict([features])[0]
 
