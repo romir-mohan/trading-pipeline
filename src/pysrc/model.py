@@ -18,10 +18,17 @@ class Model:
 
     def _find_target(self, midprice: float) -> None:
         if len(self._midprices) > 0:
-            self._targets.append(midprice - self._midprices[-1])
+            prev_midprice = self._midprices[-1]
 
-            if len(self._targets) > self._train_length:
-                self._targets = self._targets[1:]
+            if isinstance(midprice, tuple):
+                midprice = midprice[0]
+            if isinstance(prev_midprice, tuple):
+                prev_midprice = prev_midprice[0]
+
+            self._targets.append(midprice - prev_midprice)
+
+        if len(self._targets) > self._train_length:
+            self._targets = self._targets[1:]
 
     def _add_data(self, features: list[float], midprice: float) -> None:
         self._midprices.append(midprice)
