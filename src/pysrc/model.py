@@ -38,7 +38,7 @@ class Model:
             self._features = self._features[1:]
             self._midprices = self._midprices[1:]
 
-    def predict(self, data: tuple[list[float], bool]) -> Optional[float]:
+    def predict(self, data: tuple[list[float], float]) -> Optional[float]:
         features = data[0]
         midprice = data[1]
 
