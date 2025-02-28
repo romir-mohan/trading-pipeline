@@ -12,4 +12,10 @@ while counter <= 30:
     data = client.get_data()
     model.predict(data)
 
+    for waitCount in range(20):
+        print(".", end="", flush=True)
+        sleep(1)
+        waitCount += 1
+    print("\n")
+
     counter += 1
