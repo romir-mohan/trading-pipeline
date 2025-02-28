@@ -6,7 +6,7 @@ client = DataClient()
 model = Model()
 counter = 1
 
-while counter <= 10:
+while counter <= 15:
     print("Tick #: " + str(counter))
 
     data = client.get_data()
