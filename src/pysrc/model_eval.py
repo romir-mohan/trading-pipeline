@@ -10,7 +10,9 @@ while counter <= 30:
     print("Tick #: " + str(counter))
 
     data = client.get_data()
-    model.predict(data)
+
+    for features, midprice in data:
+        model.predict((features, midprice))
 
     for waitCount in range(20):
         print(".", end="", flush=True)

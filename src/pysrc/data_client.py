@@ -32,7 +32,7 @@ class DataClient:
 
     def _parse_message(
         self, messages: list[dict[str, Any]]
-    ) -> list[tuple[float, float, bool]]:
+    ) -> list[tuple[list[float], float]]:
         trades = []
 
         for x in messages:
@@ -40,18 +40,17 @@ class DataClient:
                 price = float(x["price"])
                 amount = float(x["amount"])
 
-                if x["type"] == "buy":
-                    side = True
-                else:
-                    side = False
+                features = [price, amount]
 
-                trade = (price, amount, side)
+                midprice = price
+
+                trade = (features, midprice)
 
                 trades.append(trade)
 
         return trades
 
-    def get_data(self) -> list[tuple[float, float, bool]]:
+    def get_data(self) -> list[tuple[list[float], float]]:
         data = self._query_api()
 
         return self._parse_message(data)
