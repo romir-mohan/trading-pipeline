@@ -20,4 +20,5 @@ if exp and act:
     print("r-value:", r_value)
     print("p-value:", p_value)
 else:
+    print(len(exp), len(act))
     print("Not enough data for correlation calculation.")
