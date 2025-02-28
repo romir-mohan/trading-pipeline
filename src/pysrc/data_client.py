@@ -6,7 +6,7 @@ import time
 
 class DataClient:
     def __init__(self) -> None:
-        pass
+        self.api_url = "https://api.sandbox.gemini.com/v1/trades/btcusd"
 
     def _query_api(self) -> list[dict[str, Any]]:
         retries = 3
