@@ -38,7 +38,7 @@ class Model:
         self._find_target(midprice)
 
         if len(self._features) == self._train_length:
-            if self._previous_prediction is not None:
+            if self._previous is not None:
                 with open(self._filepath, "a") as file:
                     file.write(
                         "Time: "
