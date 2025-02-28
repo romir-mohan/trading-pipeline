@@ -1,5 +1,5 @@
-from home.rmohan.intern-project.src.pysrc.data_client import DataClient
-from home.rmohan.intern-project.src.pysrc.model import Model
+from pysrc.data_client import DataClient
+from pysrc.model import Model
 from time import sleep
 
 client = DataClient()
