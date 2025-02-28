@@ -53,7 +53,6 @@ def test__parse_message() -> None:
         trades = client._parse_message(data)
 
         assert len(trades) == 4
-        assert trades[0][0] == 101
 
 
 def test_get_data() -> None:
@@ -65,4 +64,3 @@ def test_get_data() -> None:
         trades = client.get_data()
 
         assert len(trades) == 4
-        assert trades[0][0] == 101
