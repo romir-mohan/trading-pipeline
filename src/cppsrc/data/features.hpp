@@ -1,7 +1,7 @@
-#include "src/cppsrc/features/five_tick_volume_feature.hpp"
-#include "src/cppsrc/features/number_trades_feature.hpp"
-#include "src/cppsrc/features/percent_buy_feature.hpp"
-#include "src/cppsrc/features/percent_sell_feature.hpp"
+#include "/home/runner/work/intern-project/intern-project/src/cppsrc/five_tick_volume_feature.hpp"
+#include "/home/runner/work/intern-project/intern-project/src/cppsrc/number_trades_feature.hpp"
+#include "/home/runner/work/intern-project/intern-project/src/cppsrc/percent_buy_feature.hpp"
+#include "/home/runner/work/intern-project/intern-project/src/cppsrc/percent_sell_feature.hpp"
 
 #include <limits>
 #include <tuple>
