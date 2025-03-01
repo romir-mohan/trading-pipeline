@@ -20,6 +20,9 @@ file(GLOB INTERN_PROJECT_MAIN src/cppsrc/main.cpp)
 file(GLOB_RECURSE INTERN_PROJECT_HEADERS src/cppsrc/*.hpp)
 file(GLOB_RECURSE INTERN_PROJECT_TESTS src/cppsrc/test/*.cpp)
 
+target_include_directories(intern_tests PUBLIC src/cppsrc)
+target_include_directories(intern_project PUBLIC src/cppsrc)
+
 add_executable(intern_project ${INTERN_PROJECT_MAIN} ${INTERN_PROJECT_HEADERS})
 target_include_directories(intern_project PUBLIC src)
 
