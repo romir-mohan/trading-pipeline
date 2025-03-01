@@ -12,12 +12,23 @@ class Model:
         self._time = 0
         self._previous: Optional[float] = None
 
+        self._filepath = "src/pysrc/data/test_data.txt"
+        with open(self._filepath, "w") as _:
+            pass
+
     def _find_target(self, midprice: float) -> None:
         if len(self._midprices) > 0:
-            self._targets.append(midprice - self._midprices[-1])
+            prev_midprice = self._midprices[-1]
 
-            if len(self._targets) > self._train_length:
-                self._targets = self._targets[1:]
+            if isinstance(midprice, tuple):
+                midprice = midprice[0]
+            if isinstance(prev_midprice, tuple):
+                prev_midprice = prev_midprice[0]
+
+            self._targets.append(midprice - prev_midprice)
+
+        if len(self._targets) > self._train_length:
+            self._targets = self._targets[1:]
 
     def _add_data(self, features: list[float], midprice: float) -> None:
         self._midprices.append(midprice)
@@ -33,7 +44,18 @@ class Model:
 
         self._find_target(midprice)
 
+        print(f"Current features length: {len(self._features)}")
+
         if len(self._features) == self._train_length:
+            if self._previous is not None:
+                with open(self._filepath, "a") as file:
+                    file.write(
+                        f"Time: {self._time}\n"
+                        f"Expected: {self._previous}\n"
+                        f"Actual: {self._targets[-1]}\n"
+                    )
+                    print(f"Data written at time {self._time}")
+
             self._model.fit(self._features, self._targets)
             prediction: float = self._model.predict([features])[0]
 
