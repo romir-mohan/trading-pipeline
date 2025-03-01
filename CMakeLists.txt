@@ -1,19 +1,3 @@
-cmake_minimum_required(VERSION 3.20)
-
-project(intern LANGUAGES CXX)
-
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
-
-find_package(Python3 3.12 COMPONENTS Interpreter Development EXACT REQUIRED)
-find_package(pybind11 REQUIRED)
-
-find_package(GTest REQUIRED)
-enable_testing()
-
-find_package(cpr REQUIRED)
-find_package(nlohmann_json REQUIRED)
-
 file(GLOB INTERN_PROJECT_MAIN src/cppsrc/main.cpp)
 file(GLOB_RECURSE INTERN_PROJECT_HEADERS src/cppsrc/*.hpp)
 file(GLOB_RECURSE INTERN_PROJECT_TESTS src/cppsrc/test/*.cpp)
