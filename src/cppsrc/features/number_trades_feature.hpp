@@ -16,5 +16,4 @@ class NTradesFeature : public BaseFeature
     }
 };
 
-
 }
