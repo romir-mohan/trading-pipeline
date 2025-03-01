@@ -9,8 +9,8 @@ std::string sample_json_unit = R"([
         "timestamp": 1,
         "timestampms": 1000,
         "tid": 1,
-        "price": "101",
-        "amount": "30",
+        "price": "101.1",
+        "amount": "30.1",
         "exchange": "gemini",
         "type": "buy",
     },
@@ -18,8 +18,8 @@ std::string sample_json_unit = R"([
         "timestamp": 2,
         "timestampms": 2000,
         "tid": 2,
-        "price": "202",
-        "amount": "20",
+        "price": "202.2",
+        "amount": "20.2",
         "exchange": "gemini",
         "type": "buy",
     },
@@ -42,7 +42,7 @@ TEST(DataClientTests, ParseMessageTest)
     std::vector<std::tuple<float, float, bool>> parsed = data_client.parse_message(j);
 
     EXPECT_EQ(parsed.size(), 3);
-    EXPECT_EQ(std::get<0>(parsed[0]), 101f);
-    EXPECT_EQ(std::get<1>(parsed[0]), 30f);
+    EXPECT_EQ(std::get<0>(parsed[0]), 101.1f);
+    EXPECT_EQ(std::get<1>(parsed[0]), 30.1f);
     EXPECT_TRUE(std::get<2>(parsed[0]));
 }
