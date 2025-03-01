@@ -1,6 +1,6 @@
 #include "cpr/cpr.h"
 #include "nlohmann/json.hpp"
-#include "features.hpp"
+#include "signal.hpp"
 
 #include <string>
 #include <tuple>
@@ -13,7 +13,7 @@ namespace intproj {
 class DataClient
 {
   private:
-    Features features;
+    Signal signal;
     const cpr::Url url = "https://api.sandbox.gemini.com/v1/trades/btcusd";
 
   public:
@@ -55,8 +55,8 @@ class DataClient
 
     std::tuple<std::vector<float>, float> tick()
     {
-        nlohmann::json raw_data = get_data();
-        std::vector<std::tuple<float, float, bool>> trades = parse_message(raw_data);
+        nlohmann::json data = get_data();
+        std::vector<std::tuple<float, float, bool>> trades = parse_message(data);
 
         return features.get_features(trades);
     }
