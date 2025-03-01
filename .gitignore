@@ -1,11 +1,8 @@
 .cache
 CMakeUserPresets.json
 build
-dist
 __pycache__
 .pytest_cache
 .ruff_cache
 .mypy_cache
 *.so
-.python-version
-.vscode

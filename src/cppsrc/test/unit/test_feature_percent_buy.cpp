@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "features/percent_buy_feature.hpp"
+#include "../percent_buy_feature.hpp"
 
 TEST(FeatureTests, PctBuyTest)
 {
