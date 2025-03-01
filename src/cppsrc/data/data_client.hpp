@@ -58,7 +58,7 @@ class DataClient
         nlohmann::json data = get_data();
         std::vector<std::tuple<float, float, bool>> trades = parse_message(data);
 
-        return features.get_features(trades);
+        return signal.compute_features(trades);
     }
 };
 

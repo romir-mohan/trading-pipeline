@@ -14,7 +14,7 @@ namespace intproj {
 class Signal
 {
   private:
-    NTradesFeature n_trades;
+    NumberTradesFeature n_trades;
     PercentBuyFeature pct_buy;
     PercentSellFeature pct_sell;
     FiveTickVolumeFeature tick_volume;
