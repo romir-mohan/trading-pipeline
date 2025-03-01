@@ -12,7 +12,7 @@ std::string sample_json_unit = R"([
         "price": "101.1",
         "amount": "30.1",
         "exchange": "gemini",
-        "type": "buy",
+        "type": "buy"
     },
     {
         "timestamp": 2,
@@ -21,7 +21,7 @@ std::string sample_json_unit = R"([
         "price": "202.2",
         "amount": "20.2",
         "exchange": "gemini",
-        "type": "buy",
+        "type": "buy"
     },
     {
         "timestamp": 3,
@@ -30,7 +30,7 @@ std::string sample_json_unit = R"([
         "price": "303.3",
         "amount": "33.3",
         "exchange": "gemini",
-        "type": "sell",
+        "type": "sell"
     }
 ])";
 
