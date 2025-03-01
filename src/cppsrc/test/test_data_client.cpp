@@ -31,7 +31,7 @@ std::string sample_json_unit = R"([
         "amount": "33.3",
         "exchange": "gemini",
         "type": "sell",
-    },
+    }
 ])";
 
 TEST(DataClientTests, ParseMessageTest)
