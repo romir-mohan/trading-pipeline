@@ -1,5 +1,5 @@
 import pytest
-from pysrc import intern
+import intern
 
 
 def test_pybind() -> None:
