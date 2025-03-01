@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../five_tick_volume_feature.hpp"
+#include "..features/five_tick_volume_feature.hpp"
 
 TEST(FeatureTests, TestFiveTickVolume)
 {
