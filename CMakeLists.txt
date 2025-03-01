@@ -36,5 +36,4 @@ target_link_libraries(intern_tests PRIVATE ${Python3_LIBRARIES})
 target_link_libraries(intern_tests PRIVATE gtest::gtest)
 
 pybind11_add_module(intern src/cppsrc/main.cpp)
-install(TARGETS intern DESTINATION intern_project)
 target_link_libraries(intern PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
